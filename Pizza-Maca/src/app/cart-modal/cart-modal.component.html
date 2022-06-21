@@ -1,0 +1,41 @@
+<div class="modal" >
+  <div class="table">
+    <table>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Price</th>
+      </tr>
+      <tr *ngFor="let product of data.products, let indexOfelement=index;">
+        <td>
+          {{indexOfelement +1}}.
+        </td>
+        <td>
+          {{product.name}}
+        </td>
+        <td>
+          {{product.price | currency}}
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="total">
+    <h1>
+      Total: {{data.totalPrice | currency}}
+    </h1>    
+  <div class="order">
+    <div class="orderRow">
+      <p>Adress:</p> <input type="text" class="inputText"  id="inputAdress" placeholder="Street name and number" (change)="onChangeInputAdress($event)">
+    </div>  
+    <div class="orderRow">
+      <p>Appartment:</p> <input type="text" class="inputText"  id="inputApp" placeholder="Floor and flat number" (change)="onChangeInputApp($event)">
+    </div>
+    <div class="orderRow">      
+      <p>Telephone:</p>  <input type="text" class="inputText"  id="inputTel" placeholder="Telephone" (change)="onChangeInputTel($event)">
+    </div>
+    
+      <button class="orderBtn" mat-raised-button color="primary" (click)="onClickOrder()" mat-dialog-close>Order</button>
+    
+  </div>
+</div>

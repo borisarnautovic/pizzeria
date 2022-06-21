@@ -1,0 +1,29 @@
+
+<div *ngIf="product" class="product">
+  <div class="title">
+    <h1>{{product.name}}</h1>
+    <div class="discount" *ngIf="product.discount">
+      <img src="assets/images/discount.jpg" alt="discount" width="70" height="60">
+    </div>
+    <div class="vegeterian" *ngIf="product.vegetarian">
+      <img src="assets/images/vegeterian.jpg" alt="vegeterian" width="50" height="50">
+    </div>
+  </div>
+  <div class="content">
+    <div class="picture">
+      <img  [src] ='product.picture'
+      [style.width.px]="imageWidth"
+      [style.height.px] = 'imageHeight'
+      alt="slika">
+    </div>
+    <div class="descPrice">
+      <div class="description">
+        {{product.description}}    
+      </div>
+      <div class="price">
+        Price: {{product.price | currency}} 
+      </div>
+    </div>
+  </div>
+  
+</div>

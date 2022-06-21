@@ -1,0 +1,101 @@
+.container-left{
+  float: left;
+  width: 45%;  
+  padding: 15px; 
+  margin: 10px;   
+  height: 210px;
+  border-bottom: 1px solid black;  
+}
+
+
+.picture{   
+  margin: 10px;
+  width: 90px;   
+  height: 90px;
+  float: left;  
+}
+
+.sadrzaj{
+ display: inline-block; 
+ width: 75%;   
+}
+
+.price-grade{
+  display: inline-block;
+  width: 100%;
+}
+.price{  
+  float: left;
+  
+}
+.grade{   
+  float: right;
+}
+
+.btn{
+  float: right;
+}
+
+.img-btn{
+  display: inline-block;
+  width: 100%;
+
+}
+
+.discount{
+  display: inline-block;
+  width: 60px;
+  height: 60px;  
+}
+
+.vegeterian{
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------------------------------- */
+
+.checbox {  
+  margin: 15px 0;
+  margin-left: 15px;  
+}
+.headers{
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid black;
+
+}
+
+.checbox{
+  float: left;  
+}
+
+.checbox input{
+  padding: 3px;
+  margin-left: 30px;
+  width: 30px;
+  height: 20px;  
+}
+
+.checbox input:checked ~ .checkbox{
+  background-color: gray;
+}
+
+.checbox label{
+  font-size: large;
+}
+
+.cart{
+  float: right;
+  margin-right: 50px; 
+  padding: 10px; 
+}
+
+.mat-checkbox{
+  color: black;
+}
+
+
+

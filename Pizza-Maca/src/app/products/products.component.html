@@ -1,0 +1,99 @@
+
+<div class="headers">
+  <div class="checbox">
+    <input  type="checkbox" 
+            name="discount" 
+            id="discount"
+            (change)="isCheckedDis = !isCheckedDis"
+            (change)="onChangeDisc($event)" 
+            [checked]="isCheckedDis">                 
+    <label for="discount">Discount</label>
+
+    <input type="checkbox"
+           name="vegeterian"
+           id="vegeterian"
+           (change)="isCheckedVege = !isCheckedVege"
+           (change)="onChangeDisc($event)" 
+           [checked]="isCheckedVege">
+    <label for="vegeterian">Vegeterian</label>    
+  </div>
+  <div class="cart">
+    <i class="material-icons">shopping_cart</i>
+
+    <div *ngIf="producstService.productsInCart.length === 0; else checkout">
+      <p class="cartText" id="cartText">Your cart is empty</p>
+    </div>
+    <ng-template #checkout>
+        <div  class="checkoutCart"> 
+        <p>
+          {{producstService.productsInCart.length}} items in cart
+        </p>
+        <p>
+          (total {{totalPrice | currency}} )
+        </p>
+        <button class="btn" mat-raised-button color="primary"  (click)="openDialog()">checkout</button>
+      </div>
+      </ng-template>
+  </div>
+</div>
+
+<!-- ------------------------------------------------------------------------------------------------------------- -->
+
+
+<div class="container"  *ngFor="let product of productsToShow" > 
+
+  <div>
+  
+    <div class="container-left">
+
+      <div class="picture">
+        <img  [src] ='product.picture'
+              [style.width.px]="imageWidth"
+              [style.height.px] = 'imageHeight'
+              alt="slika">
+      </div>
+
+      <div class="sadrzaj">
+
+        <div class="header">
+          <h1>
+            <a              
+              [title]="product.name + ' details'" 
+              [routerLink]="['/product', product.name]"
+              >
+            {{product.name}}
+          </a>            
+            
+          </h1>
+        </div>
+        <div class="description">
+          <p>{{product.description}}</p>
+        </div> 
+
+        <div class="price-grade">
+          <div class="price" id="price"><p>{{product.price | currency}}</p></div>
+          <div class="grade"><p>{{product.grade}}/5</p></div>
+
+        </div>
+        <div class="img-btn">
+          <div class="discount" *ngIf="product.discount">
+            <img src="assets/images/discount.jpg" alt="discount" width="70" height="60">
+          </div>
+          <div class="vegeterian" *ngIf="product.vegetarian">
+            <img src="assets/images/vegeterian.jpg" alt="vegeterian" width="50" height="50">
+          </div>
+
+          <button class="btn" mat-raised-button color="primary" (click)=AddtoCart(product)>Add to cart</button>
+
+        </div>
+          
+      </div>
+      <!-- <div class="footer">
+        <hr>
+      </div> -->
+
+    </div>
+  </div>
+</div>
+
+
